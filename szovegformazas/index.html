@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Szöveg formázás</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="container m-auto">
+    <header>
+        <div id="header" class="container shadow rounded border-light p-5 m-2">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">
+                        Szövegformázás CSS segítségével
+                    </h1>
+                </div>
+            </div>
+        </div> 
+    </header>
+
+    <main>
+        <div id="main" class="container rounded border-light  p-4 m-2">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Font-family:
+                    </h2>
+                    <p>
+                        A <span class="tag">font-family</span> tulajdonság segítségével beállítható a megjelenítendő szöveg betűtípusa. 
+                    </p>
+                    <p>
+                        Előfordulhat, hogy a felhasználó eszközére még nem lett telepítve a kívánt betűstílus. 
+                        Ennek megoldása érdekében a <span class="tag">font-family</span> tulajdonság után több értéket is érdemes felsorolni, egy úgynevezett prioritás listát. 
+                        A böngésző a listából az első olyan betűtípust fogja kiválasztani, amelyikkel meg tudja jeleníteni a szövegedet.
+                    </p>
+                    <p>
+                        A megadható értékek típusai:
+                        <ul>
+                            <li>
+                                <b>Betűtípuscsalád</b>: 
+                                <ul>
+                                    <li>A betűtípusok megadására a fontok neve szolgál</li>
+                                    <li> A Microsoft és az Apple oprendszerek hasonló TrueType betűtípust használnak, a UNIX alapú rendszerek Type1 és PostScript fontokkal dolgoznak.</li>
+                                    <li>Ha mindenkinek kedvére akarunk tenni, akkor a webre kerülő output állományainkban TrueType betűtípusokat kell
+                                        szerepeltetni, ugyanakkor biztosítani kell a lehetőséget azoknak is, akik nem ilyen fontokat használnak.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>Általános betűtípuscsalád</b>: 
+                                <ul>
+                                    <li>
+                                        Egy másik lehetséges módszer, hogy olyan általánosan használt betűtípust állítunk be, melyet az összes rendszeren futó böngésző tud kezelni
+                                    </li>
+                                    <li>
+                                        Ilyen betűtípusból összesen 5 darab létezik (pl.: talpas karaktereket használó serif - Times New Roman)
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p&gt;Alma&lt;/p&gt;<br>
+                                &emsp;&lt;p id=”szöveg”&gt;Körte&lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #szöveg {<br>
+                                    &emsp;font-family: 'Times New Roman', Times, serif;<br>
+                                }                                    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p style="font-family: nunito-regular;">Alma</p>
+                                <p style="font-family: 'Times New Roman', Times, serif;">Körte</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Font-size:
+                    </h2>
+                    <p>
+                        A <span class="tag">font-size</span> tulajdonság segítségével beállítható a megjelenítendő szöveg mérete.
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                <b>Relatív érték megadás (ajánlott)</b>: az értékek a szülő elem méretéhez képest relatívan adják meg a betűméretet
+                                <ul>
+                                    <li>%</li>
+                                    <li>em</li>
+                                    <li>smaller</li>
+                                    <li>larger</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <b>Abszolút érték megadás</b>:
+                                <ul>
+                                    <li>xx-small</li>
+                                    <li>x-small</li>
+                                    <li>small</li>
+                                    <li>medium</li>
+                                    <li>large</li>
+                                    <li>x-large</li>
+                                    <li>xx-large</li>
+                                    <li>px</li>
+                                    <li>pt</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p&gt; Alma &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”körte”&gt; Körte &lt;/p&gt;<br>
+                                &emsp;&lt;p id =”barack”&gt; Barack &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”cseresznye”&gt; Cseresznye &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #körte {<br>
+                                    &emsp;font-size: smaller;<br>
+                                }<br><br>
+                                #barack {<br>
+                                &emsp;font-size: larger;<br>
+                                }<br><br>
+                                #cseresznye {<br>
+                                &emsp;font-size: 20px;<br>
+                                }<br>
+                                                                      
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p>Alma</p>
+                                <p style="font-size: smaller;">Körte</p>
+                                <p style="font-size: larger;">Barack</p>
+                                <p style="font-size: 20px;">Cseresznye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Font-weight:
+                    </h2>
+                    <p>
+                        A <span class="tag">font-weight</span> tulajdonság segítségével beállítható a megjelenítendő betűk vastagsága.
+                    </p>
+                    <p>
+                        <p>Megadható értékek:</p>
+                        <ul>
+                            <li>normal (normál)</li>
+                            <li>bold (félkövér)</li>
+                            <li>bolder (félkövérnél vastagabb)</li>
+                            <li>lighter (normálnál vékonyabb)</li>
+                            <li>100 - 900, a kerek 100-as értékek</li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p&gt; Alma &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”körte”&gt; Körte &lt;/p&gt;<br>
+                                &emsp;&lt;p id =”barack”&gt; Barack &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”cseresznye”&gt; Cseresznye &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #körte {<br>
+                                &emsp;font-weight: bold;<br>
+                                }<br><br>
+                                #barack {<br>
+                                &emsp;font-weight: lighter;<br>
+                                }<br><br>
+                                #cseresznye {<br>
+                                &emsp;font-weight: 600;<br>
+                                }<br>                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p>Alma</p>
+                                <p style="font-weight: bold;">Körte</p>
+                                <p style="font-weight: lighter;">Barack</p>
+                                <p style="font-weight: 600;">Cseresznye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Font-style:
+                    </h2>
+                    <p>
+                        A <span class="tag">font-style</span> tulajdonság segítségével beállítható a dőlt betűs írásmód.
+                    </p>
+                    <p>
+                        <p>Megadható értékek:</p>
+                        <ul>
+                            <li>normal (normál)</li>
+                            <li>italic (dőlt)</li>
+                            <li>oblique (ferde)</li>
+                            <li>inherit (érték a szülő elemtől örökölve)</li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p&gt; Alma &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”körte”&gt; Körte &lt;/p&gt;<br>
+                                &emsp;&lt;p id =”barack”&gt; Barack &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”cseresznye”&gt; Cseresznye &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #körte {<br>
+                                &emsp;font-style: normal;<br>
+                                }<br><br>
+                                #barack {<br>
+                                &emsp;font-style: italic;<br>
+                                }<br><br>
+                                #cseresznye {<br>
+                                &emsp;font-style: oblique;<br>
+                                }<br>                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p>Alma</p>
+                                <p style="font-style: normal;">Körte</p>
+                                <p style="font-style: italic;">Barack</p>
+                                <p style="font-style: oblique;">Cseresznye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="container rounded border-light  p-4 m-2">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Text-align:
+                    </h2>
+                    <p>
+                        A <span class="tag">text-align</span> tulajdonság segítségével beállítható a szöveg igazítása.
+                    </p>
+                    <p>
+                        <p>Megadható értékek:</p>
+                        <ul>
+                            <li>left (balra)</li>
+                            <li>right (jobbra)</li>
+                            <li>center (középre)</li>
+                            <li>justify (sorkizárt)</li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p id=”alma”&gt; Alma &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”körte”&gt; Körte &lt;/p&gt;<br>
+                                &emsp;&lt;p id =”barack”&gt; Barack &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”cseresznye”&gt; Cseresznye &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #alma {<br>
+                                &emsp;text-align: left;<br>
+                                }<br><br>
+                                #körte {<br>
+                                &emsp;text-align: center;<br>
+                                }<br><br>
+                                #barack {<br>
+                                &emsp;text-align: right;<br>
+                                }<br><br>
+                                #cseresznye {<br>
+                                &emsp;text-align: justify;<br>
+                                }<br>                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p style="text-align: left;">Alma</p>
+                                <p style="text-align: center;">Körte</p>
+                                <p style="text-align: right;">Barack</p>
+                                <p style="text-align: justify;">Cseresznye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Text-decoration:
+                    </h2>
+                    <p>
+                        A <span class="tag">text-decoration</span> tulajdonság segítségével klasszikus formázásokat hajthatunk végre a szövegen.
+                    </p>
+                    <p>
+                        <p>Megadható értékek:</p>
+                        <ul>
+                            <li>none (nincs formázás)</li>
+                            <li>underline (aláhúzás)</li>
+                            <li>overline (fölé húzás)</li>
+                            <li>line-through (áthúzás)</li>
+                            <li>blink (villogás - nem minden böngésző támogatja)</li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p id=”alma”&gt; Alma &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”körte”&gt; Körte &lt;/p&gt;<br>
+                                &emsp;&lt;p id =”barack”&gt; Barack &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”cseresznye”&gt; Cseresznye &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #alma {<br>
+                                &emsp;text-decoration: none;<br>
+                                }<br><br>
+                                #körte {<br>
+                                &emsp;text-decoration: underline;<br>
+                                }<br><br>
+                                #barack {<br>
+                                &emsp;text-decoration: overline;<br>
+                                }<br><br>
+                                #cseresznye {<br>
+                                &emsp;text-decoration: line-through;<br>
+                                }<br>                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p style="text-decoration: none;">Alma</p>
+                                <p style="text-decoration: underline;">Körte</p>
+                                <p style="text-decoration: overline;">Barack</p>
+                                <p style="text-decoration: line-through;">Cseresznye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Text-transform:
+                    </h2>
+                    <p>
+                        A <span class="tag">text-transform</span> tulajdonság segítségével beállítható a karakterek nagysága.
+                    </p>
+                    <p>
+                        <p>Megadható értékek:</p>
+                        <ul>
+                            <li>none (nincs átalakítás)</li>
+                            <li>lowercase (kisbetűs)</li>
+                            <li>uppercase (nagybetűssé)</li>
+                            <li>capitalize (nagy kezdő betű)</li>
+                        </ul>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p id=”alma”&gt; Alma &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”körte”&gt; Körte &lt;/p&gt;<br>
+                                &emsp;&lt;p id =”barack”&gt; Barack &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”cseresznye”&gt; Cseresznye &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #alma {<br>
+                                &emsp;text-transform: none;<br>
+                                }<br><br>
+                                #körte {<br>
+                                &emsp;text-transform: lowercase;<br>
+                                }<br><br>
+                                #barack {<br>
+                                &emsp;text-transform: uppercase;<br>
+                                }<br><br>
+                                #cseresznye {<br>
+                                &emsp;text-transform: capitalize;<br>
+                                }<br>                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p style="text-transform: none;">Alma</p>
+                                <p style="text-transform: lowercase;">Körte</p>
+                                <p style="text-transform: uppercase;">Barack</p>
+                                <p style="text-transform: capitalize;">Cseresznye</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Text-indent:
+                    </h2>
+                    <p>
+                        A <span class="tag">text-indent</span> tulajdonság segítségével beállítható a szöveg első sorának a behúzása.
+                    </p>
+                    <p>
+                        <p><b>Érték megadás:</b> text-indent: hosszmérték; (pl.: em vagy %)</p>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry. &lt;/p&gt;<br>
+                                &emsp;&lt;p id=”szöveg”&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry. &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #szöveg {<br>
+                                &emsp;text-indent: 2em;<br>
+                                }                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <p style="text-indent: 2em;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="font-weight-bold">
+                        Text-shadow:
+                    </h2>
+                    <p>
+                        A <span class="tag">text-shadow</span> tulajdonság segítségével árnyék állítható be a szövegrész alá.
+                    </p>
+                    <p>
+                        <p><b>Érték megadás:</b> text-shadow: eltolás-x eltolás-y szín  (az eltolások számértékek, alapesetben none)</p>
+                    </p>
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="font-weight-bold">
+                                HTML
+                            </h4>
+                            <div class="code">
+                                &lt;html&gt;<br>
+                                &lt;head&gt;<br>
+                                    &emsp;&lt;title&gt; Teszt &lt;/title&gt;<br>
+                                    &emsp;&lt;link rel=”stylesheet” href=”./css/index.css”&gt;<br>
+                                &lt;/head&gt;<br>
+                                &lt;body&gt;<br>
+                                &emsp;&lt;p id=”szöveg”&gt; Lorem Ipsum is simply dummy text of the printing and typesetting industry. &lt;/p&gt;<br>
+                                &lt;/body&gt;<br>
+                                &lt;/html&gt;<br>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <h4 class="font-weight-bold">
+                                CSS
+                            </h4>
+                            <div class="code">
+                                #szöveg {<br>
+                                &emsp;text-shadow: 2em 2em black;<br>
+                                }                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 class="font-weight-bold  mt-2">
+                                Végeredmény
+                            </h4>
+                            <div class="code">
+                                <p style="text-shadow: 0.5em 0.5em black;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="container rounded border-light p-4 m-2">
+            <div class="row">
+                <div class="col-6 m-auto">
+                    <h4 class="text-center">Kérem ossza meg velünk a véleményét!</h4>
+                    <div class="mb-3">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">@</span>
+                          <input type="text" class="form-control" placeholder="Felhasználónév" aria-label="Felhasználónév"
+                            aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mt-3 mb-3">
+                          <span class="input-group-text" id="basic-addon1">E-mail</span>
+                          <input type="text" class="form-control" placeholder="felhasznalo@email.com" aria-label="email">
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Üzenet:</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="col text-center">
+                        <button class="btn btn-outline-primary" type="submit">Elküldés</button>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="footer" class="container rounded border-light p-3 m-2">
+            <div class="row">
+                <div class="col-6">
+                    <p class="text-center">
+                        Készítette: Bora Miklós Bence
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p class="text-center">
+                        <a href="https://github.com/boramiklosbence" target="_blank"><img src="img/github_icon.png" style="width: 30px; height: 30px" alt="github ikon"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: nunito-regular;
+  src: url("../fonts/Nunito-Regular.ttf");
+}
+
+body {
+  background-color: #e8f8f5;
+  font-family: nunito-regular;
+}
+
+h2 {
+  padding: 2px 4px;
+  color: #800000;
+  background-color: #f7f7f9;
+  border: 2px solid #e1e1e8;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+#header,
+#main,
+#footer {
+  background-color: #eaecee;
+  box-shadow: 0 0.125rem 0.25rem rgb(171, 178, 185, 0.75);
+}
+
+.tag {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.code {
+  padding: 10px;
+  background-color: #1569bd;
+  border-right: 3px solid darkblue;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+}
+
